@@ -1,0 +1,50 @@
+
+=================================
+== Triton Inference Server SDK ==
+=================================
+
+NVIDIA Release 24.12 (build 128719884)
+
+Copyright (c) 2018-2024, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+*** Measurement Settings ***
+  Batch size: 1
+  Service Kind: TRITON
+  Using "time_windows" mode for stabilization
+  Stabilizing using p95latency and throughput
+  Measurement window: 10000 msec
+  Latency limit: 0 msec
+  Concurrency limit: 2 concurrent requests
+  Using synchronous calls for inference
+
+Request concurrency: 1
+Failed to update context stat: Timer not set correctly. Request time from 1793477466519079732 to 1793477466181008781.
+Failed to update context stat: Timer not set correctly. Request time from 1793477494747761760 to 1793477494523404562.
+  Client: 
+    Request count: 26
+    Throughput: 0.787411 infer/sec
+    p50 latency: 1248630 usec
+    p90 latency: 1271799 usec
+    p95 latency: 1284219 usec
+    p99 latency: 1376657 usec
+    Avg HTTP time: 1249207 usec (send/recv 238 usec + response wait 1248969 usec)
+  Server: 
+    Inference count: 28
+    Execution count: 28
+    Successful request count: 28
+    Avg request latency: 1244610 usec (overhead 6 usec + queue 41 usec + compute input 28 usec + compute infer 1244392 usec + compute output 142 usec)
+
+Request concurrency: 2
+Failed to obtain stable measurement within 10 measurement windows for concurrency 2. Please try to increase the --measurement-interval.
+Inferences/Second vs. Client p95 Batch Latency
+Concurrency: 1, throughput: 0.787411 infer/sec, latency 1284219 usec

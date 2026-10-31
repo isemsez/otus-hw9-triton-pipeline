@@ -1,0 +1,13 @@
+services:
+  triton:
+    build: .
+    image: hw9-triton:latest
+    container_name: hw9-triton
+    shm_size: "1g"
+    ports:
+      - "8000:8000" # HTTP
+      - "8001:8001" # gRPC
+      - "8002:8002" # metrics
+    volumes:
+      - ./model_repository:/models
+    command: tritonserver --model-repository=/models --exit-on-error=true
