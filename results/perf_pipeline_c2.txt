@@ -1,0 +1,47 @@
+
+=================================
+== Triton Inference Server SDK ==
+=================================
+
+NVIDIA Release 24.12 (build 128719884)
+
+Copyright (c) 2018-2024, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+*** Measurement Settings ***
+  Batch size: 1
+  Service Kind: TRITON
+  Using "time_windows" mode for stabilization
+  Stabilizing using p95latency and throughput
+  Measurement window: 30000 msec
+  Latency limit: 0 msec
+  Concurrency limit: 2 concurrent requests
+  Using synchronous calls for inference
+
+Request concurrency: 2
+  Client: 
+    Request count: 80
+    Throughput: 0.784613 infer/sec
+    p50 latency: 2714123 usec
+    p90 latency: 2763922 usec
+    p95 latency: 2770825 usec
+    p99 latency: 2785366 usec
+    Avg HTTP time: 2561432 usec (send/recv 193 usec + response wait 2561239 usec)
+  Server: 
+    Inference count: 80
+    Execution count: 80
+    Successful request count: 80
+    Avg request latency: 2709232 usec (overhead 4 usec + queue 1353070 usec + compute input 29 usec + compute infer 1355968 usec + compute output 160 usec)
+
+Inferences/Second vs. Client p95 Batch Latency
+Concurrency: 2, throughput: 0.784613 infer/sec, latency 2770825 usec
+EXIT=0
