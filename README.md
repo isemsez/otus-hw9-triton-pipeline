@@ -7,10 +7,10 @@ Inference Server с бизнес-логикой на уровне сервера
 
 ```
             ┌──────────────────────────────────────────────────────┐
- TEXT ────► │ pipeline (Python backend, BLS)                        │
-            │  1. text_embedder   (ONNX, all-MiniLM-L6-v2)          │
-            │  2. text_classifier (ONNX, LogisticRegression)        │
-            │  3. if «question»: text_generator (Qwen2.5-0.5B)      │ ───► LABEL / PROBS / ANSWER
+ TEXT ────► │ pipeline (Python backend, BLS)                       │
+            │  1. text_embedder   (ONNX, all-MiniLM-L6-v2)         │
+            │  2. text_classifier (ONNX, LogisticRegression)       │
+            │  3. if «question»: text_generator (Qwen2.5-0.5B)     │ ───► LABEL / PROBS / ANSWER
             └──────────────────────────────────────────────────────┘
 ```
 
@@ -101,8 +101,9 @@ docker logs -f hw9-triton   # дождаться READY для всех 4 мод�
 ### 3. Проверка цепочки
 
 ```bash
-.venv/Scripts/pip install tritonclient[http]
-.venv/Scripts/python client.py --text "What is the capital of France?"
+.venv/Scripts/pip install "tritonclient[http]" "tritonclient[grpc]"
+.venv/Scripts/python client.py --text "What is the capital of France?"       # HTTP, порт 8000
+.venv/Scripts/python client_grpc.py --text "What is the capital of France?"  # gRPC, порт 8001
 .venv/Scripts/python client.py --text "The capital of France is Paris."
 ```
 
