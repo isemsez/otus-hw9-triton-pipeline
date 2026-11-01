@@ -20,6 +20,12 @@ class TritonPythonModel:
         self.tokenizer = AutoTokenizer.from_pretrained(ARTIFACTS)
         self.model = AutoModelForCausalLM.from_pretrained(ARTIFACTS, torch_dtype=torch.float32)
         self.model.eval()
+        # Qwen's generation_config.json ships sampling defaults (temperature/
+        # top_p/top_k) that are meaningless under do_sample=False and trigger
+        # UserWarnings on every generate() call.
+        self.model.generation_config.temperature = None
+        self.model.generation_config.top_p = None
+        self.model.generation_config.top_k = None
         # leave one core for the embedder/classifier/Triton itself
         torch.set_num_threads(max(1, (os.cpu_count() or 2) - 1))
 
