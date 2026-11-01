@@ -44,7 +44,8 @@ hw9/
 ├── scripts/
 │   └── run_perf.sh                    # нагрузочные тесты Perf Analyzer
 ├── results/                           # логи Perf Analyzer и метрики
-├── client.py                          # проверка BLS-цепочки одним запросом
+├── client_http.py                     # проверка BLS-цепочки одним запросом (HTTP)
+├── client_grpc.py                     # то же через gRPC (сравнение протоколов)
 ├── prepare_models.py                  # экспорт/обучение/скачивание моделей
 ├── Dockerfile                         # tritonserver + torch/transformers
 ├── docker-compose.yml                 # порты 8000/8001/8002, volume с моделями
@@ -102,9 +103,9 @@ docker logs -f hw9-triton   # дождаться READY для всех 4 мод�
 
 ```bash
 .venv/Scripts/pip install "tritonclient[http]" "tritonclient[grpc]"
-.venv/Scripts/python client.py --text "What is the capital of France?"       # HTTP, порт 8000
+.venv/Scripts/python client_http.py --text "What is the capital of France?"  # HTTP, порт 8000
 .venv/Scripts/python client_grpc.py --text "What is the capital of France?"  # gRPC, порт 8001
-.venv/Scripts/python client.py --text "The capital of France is Paris."
+.venv/Scripts/python client_http.py --text "The capital of France is Paris."
 ```
 
 В первом случае ответ сгенерирует LLM, во втором — генерация пропускается.

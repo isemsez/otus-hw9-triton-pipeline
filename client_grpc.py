@@ -1,6 +1,6 @@
 """Send one request through the BLS pipeline over gRPC (port 8001).
 
-Mirror of client.py; swap the transport to compare protocols.
+Mirror of client_http.py; swap the transport to compare protocols.
 """
 
 import argparse
