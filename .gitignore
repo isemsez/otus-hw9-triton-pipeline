@@ -7,3 +7,6 @@ model_repository/text_generator/1/artifacts/
 
 # HF cache if someone runs exports with default cache dir
 .cache/
+
+# assignment statement text, not a deliverable
+hw9.txt
