@@ -28,7 +28,6 @@ WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be avai
   Using synchronous calls for inference
 
 Request concurrency: 1
-Failed to update context stat: Timer not set correctly. Request time from 1793477637577475082 to 1793477637440714854.
   Client: 
     Request count: 23
     Throughput: 0.668699 infer/sec

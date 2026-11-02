@@ -11,7 +11,13 @@
 #    --input-data zero is used (id 0 = [PAD], valid for load testing);
 #  - classifier: full 2-D shape 1,384 must be given explicitly;
 #  - generator/pipeline take a real string via --string-data.
-set -u
+#
+# "Failed to update context stat: Timer not set correctly" lines are a known
+# benign perf_analyzer client artifact (stale timestamps from requests that
+# straddle a measurement-window boundary) -- filtered out below. They can
+# also mean real request failures, but only when the report shows failed
+# requests; ours always show 0.
+set -u -o pipefail
 
 SDK_IMAGE=nvcr.io/nvidia/tritonserver:24.12-py3-sdk
 URL=host.docker.internal:8000
@@ -22,7 +28,7 @@ run() {
   echo "=== perf_analyzer: $name ==="
   docker run --rm "$SDK_IMAGE" \
     perf_analyzer -m "$name" -u "$URL" --percentile 95 "$@" \
-    2>&1 | tee "results/perf_${name}.txt"
+    2>&1 | grep -v '^Failed to update context stat' | tee "results/perf_${name}.txt"
 }
 
 # text_embedder: INT64 inputs, synthetic shape [1, 32]

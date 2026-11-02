@@ -28,8 +28,6 @@ WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be avai
   Using synchronous calls for inference
 
 Request concurrency: 1
-Failed to update context stat: Timer not set correctly. Request time from 1793477780553168521 to 1793477779990929136.
-Failed to update context stat: Timer not set correctly. Request time from 1793477780138953123 to 1793477779162798773.
   Client: 
     Request count: 12184
     Throughput: 674.024 infer/sec
@@ -45,11 +43,6 @@ Failed to update context stat: Timer not set correctly. Request time from 179347
     Avg request latency: 118 usec (overhead 38 usec + queue 52 usec + compute input 7 usec + compute infer 12 usec + compute output 7 usec)
 
 Request concurrency: 3
-Failed to update context stat: Timer not set correctly. Request time from 1793477809012239676 to 1793477808487206373.
-Failed to update context stat: Timer not set correctly. Request time from 1793477809012204956 to 1793477808487226445.
-Failed to update context stat: Timer not set correctly. Request time from 1793477808629348156 to 1793477807654574191.
-Failed to update context stat: Timer not set correctly. Request time from 1793477808631222438 to 1793477807655785862.
-Failed to update context stat: Timer not set correctly. Request time from 1793477808631287200 to 1793477807655853298.
   Client: 
     Request count: 30403
     Throughput: 1669.42 infer/sec
@@ -65,16 +58,6 @@ Failed to update context stat: Timer not set correctly. Request time from 179347
     Avg request latency: 149 usec (overhead 37 usec + queue 84 usec + compute input 7 usec + compute infer 12 usec + compute output 7 usec)
 
 Request concurrency: 5
-Failed to update context stat: Timer not set correctly. Request time from 1793477837508827677 to 1793477836934513480.
-Failed to update context stat: Timer not set correctly. Request time from 1793477837509592448 to 1793477836935166837.
-Failed to update context stat: Timer not set correctly. Request time from 1793477837509447242 to 1793477836935295195.
-Failed to update context stat: Timer not set correctly. Request time from 1793477837509940420 to 1793477836935833449.
-Failed to update context stat: Timer not set correctly. Request time from 1793477837509955118 to 1793477836935885790.
-Failed to update context stat: Timer not set correctly. Request time from 1793477837081793680 to 1793477836105053510.
-Failed to update context stat: Timer not set correctly. Request time from 1793477837081755469 to 1793477836105092515.
-Failed to update context stat: Timer not set correctly. Request time from 1793477837083645218 to 1793477836105602265.
-Failed to update context stat: Timer not set correctly. Request time from 1793477837083605046 to 1793477836105692369.
-Failed to update context stat: Timer not set correctly. Request time from 1793477837083705407 to 1793477836105632785.
   Client: 
     Request count: 43511
     Throughput: 2363.23 infer/sec
@@ -90,19 +73,6 @@ Failed to update context stat: Timer not set correctly. Request time from 179347
     Avg request latency: 167 usec (overhead 40 usec + queue 94 usec + compute input 8 usec + compute infer 15 usec + compute output 9 usec)
 
 Request concurrency: 7
-Failed to update context stat: Timer not set correctly. Request time from 1793477865953634694 to 1793477865382161322.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865953679254 to 1793477865383318437.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865953564516 to 1793477865383375656.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865955008074 to 1793477865383779781.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865954955829 to 1793477865383841973.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865955497938 to 1793477865385204397.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865955405388 to 1793477865385345047.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865527665888 to 1793477864549843118.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865527731056 to 1793477864549919970.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865527292521 to 1793477864549964019.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865527664645 to 1793477864550774018.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865528195065 to 1793477864551212668.
-Failed to update context stat: Timer not set correctly. Request time from 1793477865528134338 to 1793477864552245853.
   Client: 
     Request count: 54297
     Throughput: 2899.27 infer/sec
