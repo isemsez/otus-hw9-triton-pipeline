@@ -122,7 +122,13 @@ bash scripts/run_perf.sh     # 4 прогона, логи в results/
 
 Окружение: CPU-only (12 логических ядер, без NVIDIA GPU), Triton 24.12 (Triton
 Server 2.53.0), Perf Analyzer из SDK-образа, HTTP-протокол. Полные логи — в
-`results/perf_*.txt`.
+`results/perf_*.txt`. Примечание к логам: `text_generator` и `pipeline` — медленные
+модели (~1.2–1.5 с на запрос), поэтому в первом прогоне с окном 10 с анализатор не
+свёл p95/throughput соседних окон на c=2 за 10 попыток («Failed to obtain stable
+measurement…» — c=1 при этом замерен корректно). Интервал увеличен до 30 с
+(`--measurement-interval 30000` в `scripts/run_perf.sh`); успешный замер pipeline
+на c=2 при окне 30 с — в `results/perf_pipeline_c2.txt` (p95 2.77 с), генератор
+на c=2 отдельно не снимался.
 
 ### Итоговая таблица (concurrency = 1)
 
@@ -146,7 +152,7 @@ compute input 25 мкс + compute infer 4671 мкс + compute output ~30 мкс 
 | `text_classifier` | 674/s, 1.7 мс | 1669 / 2363 / 2899/s | почти линейное масштабирование (модель дешёвая, потоков хватает) |
 | `text_embedder` | 81/s, 17.8 мс | 107 / 110 / 110/s, p95 до 83 мс | упор в ~110 infer/s: 1 instance ORT занял все ядра (CPU контейнера под нагрузкой — ~1030% из 1200%) |
 | `text_generator` | 0.79/s | c=2: не стабилизировался в окне 10 с | 1 instance Python backend, генерация 48 токенов ~1.25 с |
-| `pipeline` | 0.67/s, p95 1.72 с | c=2: 0.78/s, **p95 2.75 с** | throughput не растёт, задержка ×2 — классический признак единственного «узкого» инстанса |
+| `pipeline` | 0.67/s, p95 1.72 с | c=2: 0.78/s, **p95 2.77 с** | throughput не растёт, задержка ×2 — классический признак единственного «узкого» инстанса |
 
 ### Использование ресурсов
 
