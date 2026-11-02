@@ -20,7 +20,7 @@ mkdir -p results
 run() {
   local name="$1"; shift
   echo "=== perf_analyzer: $name ==="
-  docker run --rm -v "$(pwd)/results:/results" "$SDK_IMAGE" \
+  docker run --rm "$SDK_IMAGE" \
     perf_analyzer -m "$name" -u "$URL" --percentile 95 "$@" \
     2>&1 | tee "results/perf_${name}.txt"
 }
